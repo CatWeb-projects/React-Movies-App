@@ -1,0 +1,27 @@
+@media screen and (max-width: 992px) {
+ .search-content__item {
+   width: 100%;
+ }
+}
+@media screen and (max-width: 768px) {
+  .search-content {
+    &__item {
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+    &__image a {
+      display: flex;
+      justify-content: center;
+    }
+    &__text {
+      margin-top: 1rem;
+    }
+    img {
+      width: 80%;
+    }
+  } 
+}
+@media screen and (max-width: 576px) {
+ 
+}

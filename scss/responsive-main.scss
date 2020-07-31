@@ -1,0 +1,44 @@
+@media screen and (max-width: 992px) {
+  .get-started {
+    font-size: 2rem;
+  }
+  .movies-container {
+    &__movies {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .get-started {
+    font-size: 1.5rem;
+  }
+  .movies-container {
+    &__movies {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .get-started {
+    font-size: 1rem;
+    justify-content: center;
+    button {
+      width: 12rem;
+    }
+  }
+  .movies-container {
+    &__movies {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media screen and (max-width: 320px) {
+  .movies-container {
+    padding-top: 2rem;
+  }
+  .get-started {
+    button {
+      margin-top: 1rem;
+    }
+  }
+}

@@ -53,6 +53,7 @@ $(document).ready(async() => {
 
 const setSearchQuery = (event) => {
   event.preventDefault();
-  console.log(event);
-  window.location.replace("/search.html");
+  let searchValue = $("#click-search").val()
+  console.log(searchValue);
+  window.location.replace(`/search.html?title=${searchValue}`);
 };

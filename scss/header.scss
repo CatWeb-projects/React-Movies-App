@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-flow: row wrap;
   a {
     color: #fff;
     font-size: 1.5rem;
@@ -49,5 +50,18 @@
     top: 50%;
     transform: translateY(-40%);
     color: #fff;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-container {
+    height: 50vh;
+  }
+}
+@media screen and (max-width: 576px) {
+  .header-container {
+    justify-content: center;
+  }
+  .main-container {
+    height: 35vh;
   }
 }

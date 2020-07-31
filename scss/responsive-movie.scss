@@ -1,0 +1,34 @@
+@media screen and (max-width: 992px) {
+  .movie-container {
+    &__content {
+      padding: 0 1rem;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .movie-container__image {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-width: 1rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  .movie-container {
+    &__holder {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__image, &__content, &__aside {
+      width: 90%;
+    }
+    &__image {
+      a:first-of-type {
+        margin-top: 1rem;
+      }
+    }
+    &__content {
+      margin-top: 1rem;
+    }
+  }
+}
