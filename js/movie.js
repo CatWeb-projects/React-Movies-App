@@ -55,5 +55,5 @@ const setSearchQuery = (event) => {
   event.preventDefault();
   let searchValue = $("#click-search").val()
   console.log(searchValue);
-  window.location.replace(`/search.html?title=${searchValue}`);
+  window.location.replace(`search.html?title=${searchValue}`);
 };
