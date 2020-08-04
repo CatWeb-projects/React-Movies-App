@@ -1,8 +1,15 @@
+.main {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
 .main-container {
   width: 100%;
   height: 100vh;
   padding: 3rem 2rem;
-  background-image: url(https://a.ltrbxd.com/resized/sm/upload/5l/n4/pt/7k/9DC753F7-48D9-46BC-9CB1-327CF39823B5-1200-1200-675-675-crop-000000.jpg?k=0b0f3971c9);
+  background-image: url(/images/banner.png);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   box-shadow: inset 0 -8rem 9rem 11rem #14181c;
 }
@@ -52,6 +59,15 @@
     color: #fff;
   }
 }
+.spinner {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .main-container {
     height: 50vh;

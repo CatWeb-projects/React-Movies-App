@@ -1,11 +1,11 @@
-var gulp = require('gulp'),
-  browserSync = require('browser-sync'),
-  sass = require('gulp-sass'),
-  autoprefixer = require('gulp-autoprefixer'),
-  sourcemaps = require('gulp-sourcemaps'),
-  reload = browserSync.reload,
-  server = browserSync.create(),
-  src = {
+var gulp = require('gulp')
+var browserSync = require('browser-sync')
+var sass = require('gulp-sass')
+var autoprefixer = require('gulp-autoprefixer')
+var sourcemaps = require('gulp-sourcemaps')
+var reload = browserSync.reload
+var server = browserSync.create()
+var src = {
       scss: 'scss/{,*/}*.{scss,sass}',
       css: 'css/{,*/}*.css',
       css_dest: 'css/',

@@ -6,11 +6,12 @@ const getItemMovie = async () => {
   return itemMovie.data
 }
 $(document).ready(async() => {
+  $('.spinner').hide()
   const movieItem = await getItemMovie()
   console.log(movieItem)
   $(".movie-container__image").replaceWith(`
     <div class="movie-container__image">
-      <img src="https://image.tmdb.org/t/p/w500${movieItem.poster_path}" alt="">
+      <img src="https://image.tmdb.org/t/p/w500${movieItem.poster_path}" alt="Image">
       <a href="#"><span>
         <i class="fas fa-eye"></i>${movieItem.popularity}</span>
       </a>
@@ -22,7 +23,7 @@ $(document).ready(async() => {
   $(".movie-container__info").replaceWith(`
   <div class="movie-container__info">
     <span>${movieItem.title}</span>
-    <span>${movieItem.release_date}</span>
+    <span>${movieItem.release_date.substring(0, 4)}</span>
     <span>Directed by <a href="#">${movieItem.production_companies[0].name}</a></span>
   </div>
   `);
@@ -54,6 +55,5 @@ $(document).ready(async() => {
 const setSearchQuery = (event) => {
   event.preventDefault();
   let searchValue = $("#click-search").val()
-  console.log(searchValue);
-  window.location.replace(`search.html?title=${searchValue}`);
+  window.location.replace(`search.html?query=${searchValue}`);
 };

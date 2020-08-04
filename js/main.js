@@ -4,6 +4,7 @@ const getMovies = async () => {
   return data.data.results
 }
 $(document).ready(async() => {
+  $('.spinner').hide()
   const movies = await getMovies()
   const moviesContainer = $('.movies-container__movies')
   console.log(movies)
@@ -21,6 +22,5 @@ $(document).ready(async() => {
 const setSearchQuery = (event) => {
   event.preventDefault();
   let searchValue = $("#click-search").val()
-  console.log(searchValue);
-  window.location.replace(`search.html?title=${searchValue}`);
+  window.location.replace(`search.html?query=${searchValue}`);
 };
