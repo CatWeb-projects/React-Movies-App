@@ -2,13 +2,12 @@ const getItemMovie = async () => {
   const key = 'ad2fb2e9ab12851bd813fca1a20c373e';
   const urlParams = new URLSearchParams(window.location.search);
   const getId = urlParams.get('id')
-  const itemMovie = await axios.get(`https://api.themoviedb.org/3/movie/${getId}?api_key=${key}&language=en-US`);
-  return itemMovie.data
+  const itemMovie = await fetch(`https://api.themoviedb.org/3/movie/${getId}?api_key=${key}&language=en-US`)
+  .then(res => res.json())
+  return itemMovie
 }
 $(document).ready(async() => {
-  $('.spinner').hide()
   const movieItem = await getItemMovie()
-  console.log(movieItem)
   $(".movie-container__image").replaceWith(`
     <div class="movie-container__image">
       <img src="https://image.tmdb.org/t/p/w500${movieItem.poster_path}" alt="Image">
@@ -24,7 +23,13 @@ $(document).ready(async() => {
   <div class="movie-container__info">
     <span>${movieItem.title}</span>
     <span>${movieItem.release_date.substring(0, 4)}</span>
-    <span>Directed by <a href="#">${movieItem.production_companies[0].name}</a></span>
+    <span>Directed by <a href="${movieItem.homepage}">${movieItem.production_companies[0] ? 
+      movieItem.production_companies[0].name : 
+      (movieItem.production_countries[0] ? 
+        movieItem.production_countries[0].name : 
+        'Unknown Production' )}</a>
+    </span><br>
+    <span>${movieItem.tagline}</span>
   </div>
   `);
   $(".movie-container__text").replaceWith(`
@@ -50,6 +55,7 @@ $(document).ready(async() => {
     </a>
   </div>
   `);
+  $('.spinner').hide()
 });
 
 const setSearchQuery = (event) => {

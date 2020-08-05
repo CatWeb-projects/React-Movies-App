@@ -1,8 +1,12 @@
+.search-main {
+  background-color: #14181c;
+}
 .search-container {
   width: 100%;
   min-height: 80vh;
-  padding: 3rem 2rem;
-  background-color: #14181c;
+  max-width: 1200px;
+  padding: 3rem 0;
+  margin: 0 auto;
 }
 .search-content {
   display: flex;

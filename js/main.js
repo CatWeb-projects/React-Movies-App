@@ -1,14 +1,13 @@
 const getMovies = async () => {
   const key = 'ad2fb2e9ab12851bd813fca1a20c373e';
-  const data = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`);
-  return data.data.results
+  const data = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)
+  .then(res => res.json())
+  return data.results
 }
 $(document).ready(async() => {
-  $('.spinner').hide()
   const movies = await getMovies()
   const moviesContainer = $('.movies-container__movies')
-  console.log(movies)
-  await movies.map((item, key) => {
+  movies.map((item, key) => {
     key < 18 && moviesContainer.append(`
     <div class="movies-container__movie">
       <a href="movie.html?id=${item.id}">
@@ -17,6 +16,7 @@ $(document).ready(async() => {
     </div>
     `)
   })
+  $('.spinner').hide()
 });
 
 const setSearchQuery = (event) => {
