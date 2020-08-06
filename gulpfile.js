@@ -1,10 +1,11 @@
-var gulp = require('gulp')
-var browserSync = require('browser-sync')
-var sass = require('gulp-sass')
-var autoprefixer = require('gulp-autoprefixer')
-var sourcemaps = require('gulp-sourcemaps')
-var reload = browserSync.reload
-var server = browserSync.create()
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
+var reload = browserSync.reload;
+var server = browserSync.create();
+var inject = require('gulp-inject');
 var src = {
       scss: 'scss/{,*/}*.{scss,sass}',
       css: 'css/{,*/}*.css',
@@ -25,6 +26,16 @@ gulp.task('serve', function(done) {
     }
   });
   done();
+});
+
+//gulp-inject
+gulp.task('index', function () {
+  var target = gulp.src('./*.html');
+  // It's not necessary to read the files (will speed up things), we're only after their paths:
+  var sources = gulp.src(['./src/**/*.js', './src/**/*.css'], {read: false});
+ 
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./src'));
 });
 
 // Compile SASS in dev mode.
